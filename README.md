@@ -1,9 +1,8 @@
-# mybatisGeneratorCode1
-##通过Main方式生成Mapper Dao Po代码
-代码工程结构图：
+## way1：通用Main方法 逆向生成Mapper Dao PO  ##
+### 代码工程结构图：
 ![](https://i.imgur.com/YEp4rJ1.png)
 
-####第一步：引入所需要的jar包
+#### 第一步：引入所需要的jar包
 ```xml
 	  <dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -30,10 +29,10 @@
 			<version>1.3.5</version>
 		</dependency>
 ```
-####第二步：编写所需的配置文件：generator.properties、mybatis_generator_config.xml
+#### 第二步：编写所需的配置文件：generator.properties、mybatis_generator_config.xml
 说明：这里面需要读者改写五个自己的配置--> ***jdbc.connectionURL***（数据库连接）***jdbc.userId***（用户名）***jdbc.password***（密码）***table.name***（需要生成实体类的表名）***table.domainObjectName***（对应想生成实体类的类名）
 
-######generator.properties 配置如下：
+#### generator.properties 配置如下：
 ```xml
 jdbc.driverLocation=D:\\mavenLocal\\mysql\\mysql-connector-java\\5.1.43\\mysql-connector-java-5.1.43.jar
 # 该驱动会导致 XXByPrimaryKey 生成失败
@@ -104,7 +103,7 @@ java.client.generator.targetProject=src/main/java
 java.client.generator.type=XMLMAPPER
 
 ```
-######mybatis_generator_config.xml配置如下：
+#### mybatis_generator_config.xml配置如下：
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -250,7 +249,7 @@ java.client.generator.type=XMLMAPPER
 ```
 
 
-####第三步：编写mybatis逆向生成工具类：
+#### 第三步：编写mybatis逆向生成工具类：
 
 ```java
 
@@ -307,7 +306,7 @@ public class MybatisGeneratorUtil {
 
 ```
 
-####第四步：运行MybatisGeneratorUtil.java
+#### 第四步：运行MybatisGeneratorUtil.java
 
 ![](https://i.imgur.com/Ad3Tj8I.png)
 
